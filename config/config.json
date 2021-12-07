@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "postgres",
-    "password": "iammonchuu123@",
+    "password": "surabhi.@123",
     "database": "food_delivery",
-    "host": "127.0.0.1",
+    "host": "20.124.241.214",
     "dialect": "postgres"
   },
   "test": {

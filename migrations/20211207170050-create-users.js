@@ -16,17 +16,28 @@ module.exports = {
           notEmpty: { msg: 'Name must not be empty' }
         }
       },
-      phone_no: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notNull: { msg: 'User must have phone number' },
-          notEmpty: { msg: 'Phone Number must not be empty' }
-        }
-      },
       verified: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
+      },
+      email: {
+        type: DataTypes.STRING,
+        validate: {
+          isEmail: true,
+          defaultValue: null
+        }
+      },
+      dob: {
+        type: DataTypes.STRING,
+        validate: {
+          defaultValue: null
+        }
+      },
+      transaction_id: {
+        type: DataTypes.INTEGER,
+        validate: {
+          defaultValue: null
+        }
       },
       createdAt: {
         allowNull: false,

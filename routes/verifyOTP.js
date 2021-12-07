@@ -8,6 +8,18 @@ const generateAcessToken = require('../accessToken/generateAcessToken')
 // var AWS = require('aws-sdk');
 // const crypto = require('crypto');
 
+let refreshTokens = []
+
+router.post('/token', async (req, res, next) => {
+  const refreshToken = req.body.token
+  if (refreshToken == null) return res.sendStatus(401)
+  if (!refreshTokens.includes(refreshToken)) return res.sendStatus(403)
+  jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, user) => {
+    if(err) return res.sendStatus(403)
+    const accessToken = generateAcessToken({ name: user.name })
+    res.json({ accessToken: accessToken })
+  })
+})
 
 router.post('/verifyotp', async (req, res, next) => {
 
@@ -40,6 +52,7 @@ router.post('/verifyotp', async (req, res, next) => {
           const user = { name: username }
           const accessToken = generateAcessToken(user)
           const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET)
+          refreshTokens.push(refreshToken)
           console.log(accessToken)
           return res.status(200).json({ msg: 'User logged in and verified successfully', accessToken: accessToken, refreshToken: refreshToken })
         }

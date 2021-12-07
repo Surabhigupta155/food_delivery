@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Users extends Model {
+  class Supplier extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,20 +13,21 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-  Users.init({
-    name: {
+  Supplier.init({
+    supplier_name: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        notNull: { msg: 'User must have a name' },
+        notNull: { msg: 'Supplier must have a name' },
         notEmpty: { msg: 'Name must not be empty' }
       }
     },
+    address: DataTypes.STRING,
     phone_no: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        notNull: { msg: 'User must have phone number' },
+        notNull: { msg: 'Supplier must have phone number' },
         notEmpty: { msg: 'Phone Number must not be empty' },
         isNumeric: true
       }
@@ -38,26 +39,15 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
       validate: {
-        isEmail: true,
-        defaultValue: null
+        isEmail: true
       }
     },
-    dob: {
-      type: DataTypes.STRING,
-      validate: {
-        defaultValue: null
-      }
-    },
-    transaction_id: {
-      type: DataTypes.INTEGER,
-      validate: {
-        defaultValue: null
-      }
-    }
+    rating: DataTypes.INTEGER,
+    working_hours: DataTypes.STRING
   }, {
     sequelize,
-    tableName: 'Users',
-    modelName: 'Users',
+    tableName: 'Supplier',
+    modelName: 'Supplier',
   });
-  return Users;
+  return Supplier;
 };
