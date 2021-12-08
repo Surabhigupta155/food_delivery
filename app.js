@@ -32,11 +32,13 @@ app.use(logger('common'))
 const signup = require('./routes/signup');
 const verify_otp = require('./routes/verifyOTP');
 const login = require('./routes/login');
+const supplier = require('./routes/supplier');
 // const testing = require('./routes/testing');
 
 app.use('/api/v1/', signup);
 app.use('/api/v1/', verify_otp);
 app.use('/api/v1/', login);
+app.use('/api/v1/supplier/', supplier);
 
 // app.use('/abhyam', testing);
 
