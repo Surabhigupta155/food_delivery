@@ -1,38 +1,35 @@
 'use strict';
 module.exports = {
-  up: async (queryInterface, DataTypes) => {
-    await queryInterface.createTable('Reviews', {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable('Carts', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER
-      },
-      time_date: {
-        type: DataTypes.STRING
-      },
-      review: {
-        type: DataTypes.STRING
+        type: Sequelize.INTEGER
       },
       c_id: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         references: { model: 'Users', key: 'id' }
       },
       p_id: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         references: { model: 'products', key: 'id' }
       },
+      status: DataTypes.STRING,
       createdAt: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       }
     });
   },
-  down: async (queryInterface, DataTypes) => {
-    await queryInterface.dropTable('Reviews');
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable('Carts');
   }
 };

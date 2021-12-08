@@ -49,7 +49,8 @@ router.post('/verifyotp', async (req, res, next) => {
         const verified = userres.verified;
         if (verified === true) {
           const username = userres.name;
-          const user = { name: username }
+          const userphone = userres.phone_no;
+          let user = { name: username, phone_number: userphone };
           const accessToken = generateAcessToken(user)
           const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET)
           refreshTokens.push(refreshToken)

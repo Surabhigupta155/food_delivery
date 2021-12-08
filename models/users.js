@@ -42,6 +42,12 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: null
       }
     },
+    address: {
+      type: DataTypes.STRING,
+      validate: {
+        defaultValue: null
+      }
+    },
     dob: {
       type: DataTypes.STRING,
       validate: {

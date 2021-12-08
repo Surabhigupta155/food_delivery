@@ -1,27 +1,28 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, DataTypes) => {
-    await queryInterface.createTable('products', {
+    await queryInterface.createTable('Orders', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER
       },
-      product_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      ord_num: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4
       },
-      product_price: {
-        type: DataTypes.INTEGER
-      },
-      description: {
-        type: DataTypes.STRING
-      },
-      s_id: {
+      c_id: {
         type: DataTypes.INTEGER,
-        references: { model: 'supplier', key: 'id' }
+        references: { model: 'Users', key: 'id' }
       },
+      p_id: {
+        type: DataTypes.INTEGER,
+        references: { model: 'products', key: 'id' }
+      },
+      quantity: DataTypes.STRING,
+      time_date: DataTypes.STRING,
+      status: DataTypes.STRING,
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE
@@ -33,6 +34,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, DataTypes) => {
-    await queryInterface.dropTable('products');
+    await queryInterface.dropTable('Orders');
   }
 };

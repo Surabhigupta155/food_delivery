@@ -4,6 +4,8 @@ const path = require('path');
 const helmet = require('helmet');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser')
+const passport = require('passport')
+require('./config/passports')(passport);
 
 const { sequelize, OTP } = require('./models')
 
@@ -14,6 +16,7 @@ const port = process.env.PORT || 5000
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cookieParser())
+app.use(passport.initialize());
 
 var cors = require('cors');
 var corsOption = {
@@ -44,6 +47,12 @@ app.get('/', function (req, res) {
     console.log('route / is accessed');
     res.send('Hi');
 })
+
+
+app.get('/list', passport.authenticate('jwt', {session:false}), function(req, res){
+    res.send('you are authorized')
+}
+);
 
 app.listen(port, async() => {
     console.log('Server up on http://localhost:5000')
