@@ -1,13 +1,21 @@
 require('dotenv').config();
 const express = require('express');
+const app = express()
 const path = require('path');
 const helmet = require('helmet');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser')
+var bodyParser = require('body-parser')
+
+app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.json())
+const passport=require('passport');
+require('./supplier/config/auth');
+app.use(passport.initialize())
 
 const { sequelize, OTP } = require('./models')
 
-const app = express()
+
 
 const port = process.env.PORT || 5000
 

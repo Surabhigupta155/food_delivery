@@ -1,39 +1,32 @@
 const router = require("express").Router();
-
-
-router.post('/signup', async (req, res, next) => {
-    return res.status(200).json({msg: "hello"})
-  });
+const controller=require("../supplier/SupplierControl")
+const passport=require("passport");
+router.post('/signup', controller.signup)
   
-router.post('/login', async (req, res, next) => {
-    return res.status(200).json({msg: "hello"})
-});
+router.post('/login', controller.login);
 
-router.post('/menu', async (req, res, next) => {
-    return res.status(200).json({msg: "hello"})
-});
+router.post('/logout', controller.logout)
+  
+router.post('/refresh_token', controller.refresh_token)
 
-router.post('/register-menu', async (req, res, next) => {
-    return res.status(200).json({msg: "hello"})
-});
+// router.post('/reset_password', controller.reset_pass)
 
-router.post('/fetch_details', async (req, res, next) => {
-    return res.status(200).json({msg: "hello"})
-});
+// router.post('/forget_password', controller.forgot_pass)
 
-router.post('/update_details', async (req, res, next) => {
-    return res.status(200).json({msg: "hello"})
-});
+router.get('/menu/:sid', controller.fetchmenu)
 
-router.post('/order_history', async (req, res, next) => {
-    return res.status(200).json({msg: "hello"})
-});
+router.post('/register_menu', controller.registermenu)
 
-router.post('/current_orders', async (req, res, next) => {
-    return res.status(200).json({msg: "hello"})
-});
+router.post('/update_menu', controller.updatemenu)
 
-router.post('/customer1-revies', async (req, res, next) => {
-    return res.status(200).json({msg: "hello"})
-});
+router.get('/fetch_details/:email', controller.fetch_details);
+
+router.post('/update_details', controller.update_details);
+
+// router.post('/order_history', controller.order_history);
+
+// router.post('/current_orders', controller.current_orders);
+
+// router.post('/customer-reviews', controller.customer-reviews);
+
 module.exports = router;
