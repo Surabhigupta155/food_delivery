@@ -41,7 +41,7 @@ passport.use(
     },
     async (email, password, done) => {
       try {
-        console.log("+++++++++++++++++++++++")
+       
         const client = await db.fetch_data(
           "public",
           "supplier",
@@ -65,7 +65,7 @@ passport.use(
         return done(null, client[0], { message: 'Logged in Successfully' });
 
       }catch(error){
-        console.log("+++++++++++++++++++++++")
+       
         console.log(`func passport.use(), Exception in User Login, 
           Email Id: ${email}, Error is : ` + error)
 

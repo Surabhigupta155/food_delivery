@@ -58,9 +58,9 @@ module.exports.signup = (req, res) => {
 module.exports.login = (req, res) => {
  
   passport.authenticate('json', async(err, user,info)=>{
-    console.log("+++++++++++++++++++++++")
+  
     try{
-      console.log("+++++++++++++++++++++++")
+    
       if(err||!user){
         return res.status(info.status).send(info.message)
       }
@@ -75,15 +75,15 @@ module.exports.login = (req, res) => {
         return res.json({
           accessToken:token,
           refresh_token:refresh_token,
-          email:""+crypto(user.email)
+          
         })
       })
     }
     catch(e){
-      console.log("+++++++++++++++++++++++")
+    
       return res.status(404).send(e)
     }
-  })
+  })(req,res)
 };
 
 module.exports.logout = async (req, res) => {
@@ -146,5 +146,9 @@ module.exports.updatemenu = (req, res) => {
   db.update_entry("public","products","id",[req.body.pid],cols,vals).then(data=>res.send(data))
 };
 
+module.exports.order_history = (req, res) => {
+  db.fetch_data("public","products","id product_name product_price description","s_id",req.params.sid)
+  .then(data=>res.send(data))
+};
 
 

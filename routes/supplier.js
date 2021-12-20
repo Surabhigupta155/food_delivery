@@ -5,7 +5,7 @@ router.post('/signup', controller.signup)
   
 router.post('/login', controller.login);
 
-router.post('/logout', controller.logout)
+router.post('/logout', passport.authenticate('jwt', { session: false }),controller.logout)
   
 router.post('/refresh_token', controller.refresh_token)
 
@@ -13,20 +13,20 @@ router.post('/refresh_token', controller.refresh_token)
 
 // router.post('/forget_password', controller.forgot_pass)
 
-router.get('/menu/:sid', controller.fetchmenu)
+router.get('/menu/:sid',passport.authenticate('jwt', { session: false }), controller.fetchmenu)
 
-router.post('/register_menu', controller.registermenu)
+router.post('/register_menu',passport.authenticate('jwt', { session: false }), controller.registermenu)
 
-router.post('/update_menu', controller.updatemenu)
+router.post('/update_menu',passport.authenticate('jwt', { session: false }), controller.updatemenu)
 
-router.get('/fetch_details/:email', controller.fetch_details);
+router.get('/fetch_details/:email', passport.authenticate('jwt', { session: false }),controller.fetch_details);
 
-router.post('/update_details', controller.update_details);
+router.post('/update_details', passport.authenticate('jwt', { session: false }),controller.update_details);
 
-// router.post('/order_history', controller.order_history);
+router.post('/order_history',passport.authenticate('jwt', { session: false }), controller.order_history);
 
-// router.post('/current_orders', controller.current_orders);
+// router.post('/current_orders',passport.authenticate('jwt', { session: false }), controller.current_orders);
 
-// router.post('/customer-reviews', controller.customer-reviews);
+// router.post('/customer-reviews',passport.authenticate('jwt', { session: false }), controller.customer-reviews);
 
 module.exports = router;
