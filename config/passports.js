@@ -13,18 +13,19 @@ module.exports = function(passport){
                 jwtFromRequest: ExtractJwT.fromAuthHeaderAsBearerToken()
             },
             function(jwt_payload, next){
-                console.log(jwt_payload);
-                Users.findOne({ where: { phone_no: jwt_payload.phone_number } }, function(err, user){
-                    if(err){
-                        return next(err, false);
-                    }
-                    if(user){
-                        next(null, user);
-                    }
-                    else{
-                        next(null, false);
-                    }
-                })
+                console.log("payload=> ", jwt_payload);
+                const userobj = Users.findOne({ where: { phone_no: jwt_payload.phone_number } })
+                console.log("reached======1");
+                // if(err){
+                //     return next(err, false);
+                // }
+                if(userobj){
+                    return next(null, userobj);
+                    
+                }
+                else{
+                    return next(null, false);
+                }
             }
         )
     )

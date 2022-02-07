@@ -14,10 +14,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Orders.init({
-    ord_num: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4
-    },
+    // customer address
+    // s_id
+    // total_price_of_order
     c_id: {
       type: DataTypes.INTEGER,
       references: { model: 'Users', key: 'id' }
@@ -26,13 +25,19 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       references: { model: 'products', key: 'id' }
     },
+    s_id: {
+      type: DataTypes.INTEGER,
+      references: { model: 'supplier', key: 'id' }
+    },
     quantity: DataTypes.STRING,
+    address: DataTypes.STRING,
+    total_price: DataTypes.INTEGER,
     time_date: DataTypes.STRING,
     status: DataTypes.STRING
   }, {
     sequelize,
-    tableName: 'Orders',
-    modelName: 'Orders',
+    tableName: 'orders',
+    modelName: 'orders',
   });
   return Orders;
 };
