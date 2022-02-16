@@ -1,0 +1,122 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:food_delivery_app/models/delivery_time_model.dart';
+
+
+class DeliveryTimeScreen extends StatelessWidget {
+  //const LocationScreen({Key? key}) : super(key: key);
+  static const String routeName = '/delivery-time';
+
+  static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => DeliveryTimeScreen(),
+      settings: RouteSettings(name: routeName),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+
+      appBar: AppBar(
+        title: Text(
+          'DeliveryTime',
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Theme.of(context).colorScheme.secondary,
+                  shape: RoundedRectangleBorder(),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 50,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('Select'),
+              ),
+            ],
+          ),
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Choose a Date',
+              style: Theme.of(context).textTheme.headline4!.copyWith(
+                color: Theme.of(context).colorScheme.secondary,
+              ),
+            ),
+            Container(
+              // width: double.infinity,
+              margin: const EdgeInsets.only(top: 10, bottom: 10),
+              // decoration: BoxDecoration(
+              //   color: Colors.white,
+              //   borderRadius: BorderRadius.circular(5.0),
+              // ),
+              child: Row(
+                children: [
+                  ElevatedButton(
+                      onPressed: () {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                              content: Text('Delivery is Today!'),
+                          duration: Duration(seconds: 2),),
+                        );
+                      },
+                      child: Text('Today'),
+                  ),
+                  SizedBox(width: 10,),
+                  ElevatedButton(
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Delivery is Tomorrow!'),
+                          duration: Duration(seconds: 2),),
+                      );
+                    },
+                    child: Text('Tomorrow'),
+                  ),
+                ],
+              ),
+            ),
+            Text(
+              'Choose the Time',
+              style: Theme.of(context).textTheme.headline4!.copyWith(
+                color: Theme.of(context).colorScheme.secondary,
+              ),
+            ),
+            Expanded(
+              child: Container(
+                margin: const EdgeInsets.only(top: 10, bottom: 10),
+                child: GridView.builder(gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3, childAspectRatio: 2.5),
+                    itemCount: DeliveryTime.deliveryTimes.length,
+                    itemBuilder: (context, index) {
+                  return Card(child:
+                  TextButton(
+                    onPressed: () {
+
+                    },
+                    child: Text('${DeliveryTime.deliveryTimes[index].value}',
+                  style: Theme.of(context).textTheme.headline6,
+                  ),),
+                  );}),
+              ),
+            ),
+
+          ],
+        ),
+      ),
+    );
+  }
+}
