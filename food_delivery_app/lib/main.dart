@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_delivery_app/blocs/autocomplete/autocomplete_bloc.dart';
-import 'package:food_delivery_app/blocs/basket/basket_bloc.dart';
-import 'package:food_delivery_app/blocs/filters/filters_bloc.dart';
-import 'package:food_delivery_app/blocs/geolocation/geolocation_bloc.dart';
+import 'package:food_delivery_app/blocs/blocs.dart';
 import 'package:food_delivery_app/config/app_router.dart';
 import 'package:food_delivery_app/config/theme.dart';
 import 'package:food_delivery_app/repositories/geolocation/geolocation_repository.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_delivery_app/blocs/filters/filters_bloc.dart';
-import 'package:food_delivery_app/models/models.dart';
+
 
 class CustomCategoryFilter extends StatelessWidget {
   // final List<Category> categories;
@@ -46,6 +46,7 @@ class CustomCategoryFilter extends StatelessWidget {
                         height: 25,
                         child: Checkbox(
                           value: state.filter.categoryFilters[index].value,
+                          activeColor: Theme.of(context).colorScheme.primary,
                           onChanged: (bool? newValue) {
                             context.read<FiltersBloc>().add(UpdateCategoryFilter(
                                 categoryFilter: state.filter.categoryFilters[index].copyWith(

@@ -1,15 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/models/models.dart';
-import 'package:food_delivery_app/screens/basket/basket_screen.dart';
-import 'package:food_delivery_app/screens/checkout/checkout_screen.dart';
-import 'package:food_delivery_app/screens/delivery_time/delivery_time_screen.dart';
-import 'package:food_delivery_app/screens/filter/filter_screen.dart';
-import 'package:food_delivery_app/screens/home/home_screen.dart';
-import 'package:food_delivery_app/screens/location/location_screen.dart';
-import 'package:food_delivery_app/screens/restaurant_details/restaurant_details_screen.dart';
-import 'package:food_delivery_app/screens/restaurant_listing/restaurant_listing_screen.dart';
-import 'package:food_delivery_app/screens/voucher/voucher_screen.dart';
+import 'package:food_delivery_app/screens/screens.dart';
 
 class AppRouter {
   static Route onGenerateRoute(RouteSettings settings) {
@@ -24,6 +16,8 @@ class AppRouter {
         return LocationScreen.route();
       case BasketScreen.routeName:
         return BasketScreen.route();
+      case EditBasketScreen.routeName:
+        return EditBasketScreen.route();
       case CheckoutScreen.routeName:
         return CheckoutScreen.route();
       case DeliveryTimeScreen.routeName:

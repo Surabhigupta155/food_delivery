@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_delivery_app/models/models.dart';
 
+
 part 'basket_state.dart';
 part 'basket_event.dart';
 
@@ -21,6 +22,7 @@ class BasketBloc extends Bloc<BasketEvent, BasketState> {
     emit(BasketLoading());
     try {
       await Future<void>.delayed(const Duration(seconds: 1));
+      emit (BasketLoaded(basket: Basket(),),);
     } catch (_) {}
   }
 
@@ -100,18 +102,18 @@ class BasketBloc extends Bloc<BasketEvent, BasketState> {
   }
 
 
-  Stream<BasketState> _mapSelectDeliveryTimeToState(
-      SelectDeliveryTime event,
-      BasketState state,
-      ) async* {
-    if(state is BasketLoaded) {
-      try {
-        yield BasketLoaded(
-            basket: state.basket.copyWith(
-
-            ));
-      } catch (_) {}
-    }
-  }
+  // Stream<BasketState> _mapSelectDeliveryTimeToState(
+  //     SelectDeliveryTime event,
+  //     BasketState state,
+  //     ) async* {
+  //   if(state is BasketLoaded) {
+  //     try {
+  //       yield BasketLoaded(
+  //           basket: state.basket.copyWith(
+  //
+  //           ));
+  //     } catch (_) {}
+  //   }
+  // }
 
 }
