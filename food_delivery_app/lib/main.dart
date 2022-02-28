@@ -3,8 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_delivery_app/blocs/blocs.dart';
 import 'package:food_delivery_app/config/app_router.dart';
 import 'package:food_delivery_app/config/theme.dart';
-import 'package:food_delivery_app/repositories/geolocation/geolocation_repository.dart';
-import 'package:food_delivery_app/repositories/places/places_repository.dart';
+import 'package:food_delivery_app/repositories/repositories.dart';
 import 'package:food_delivery_app/screens/screens.dart';
 import 'package:food_delivery_app/simple_bloc_observer.dart';
 
@@ -79,8 +78,9 @@ class MyApp extends StatelessWidget {
             //primarySwatch: Colors.blue,
           //),
           //home: HomeScreen(),
+          //home: SplashScreen(),
           onGenerateRoute: AppRouter.onGenerateRoute,
-          initialRoute: HomeScreen.routeName,
+          initialRoute: SplashScreen.routeName,
         ),
       ),
     );

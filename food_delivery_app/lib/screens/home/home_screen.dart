@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_delivery_app/models/models.dart';
 import 'package:food_delivery_app/widgets/widgets.dart';
 
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
-  static const String routeName = '/';
+  static const String routeName = '/home';
 
   static Route route() {
     return MaterialPageRoute(

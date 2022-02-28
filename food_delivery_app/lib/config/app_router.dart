@@ -9,9 +9,23 @@ class AppRouter {
 
     switch(settings.name) {
       case '/':
-        return HomeScreen.route();
+        return SplashScreen.route();
       case HomeScreen.routeName:
         return HomeScreen.route();
+      case IntroScreen.routeName:
+        return IntroScreen.route();
+      case LandingScreen.routeName:
+        return LandingScreen.route();
+      case LoginScreen.routeName:
+        return LoginScreen.route();
+      case ForgetPasswordScreen.routeName:
+        return ForgetPasswordScreen.route();
+      case SendOTPScreen.routeName:
+        return SendOTPScreen.route();
+      case NewPasswordScreen.routeName:
+        return NewPasswordScreen.route();
+      case SignupScreen.routeName:
+        return SignupScreen.route();
       case LocationScreen.routeName:
         return LocationScreen.route();
       case BasketScreen.routeName:
