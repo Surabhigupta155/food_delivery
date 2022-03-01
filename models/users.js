@@ -39,21 +39,17 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       validate: {
         isEmail: true,
-        defaultValue: null
-      }
+      },
+      defaultValue: null
+    },
+    address: {
+      type: DataTypes.STRING,
+      defaultValue: null
     },
     dob: {
       type: DataTypes.STRING,
-      validate: {
-        defaultValue: null
-      }
+      defaultValue: null
     },
-    transaction_id: {
-      type: DataTypes.INTEGER,
-      validate: {
-        defaultValue: null
-      }
-    }
   }, {
     sequelize,
     tableName: 'Users',

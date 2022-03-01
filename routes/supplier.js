@@ -25,6 +25,10 @@ router.post('/update_details', passport.authenticate('jwt', { session: false }),
 
 router.post('/order_history',passport.authenticate('jwt', { session: false }), controller.order_history);
 
+
+
+// router.post('/payment_history',passport.authenticate('jwt', { session: false }), controller.current_orders);
+
 // router.post('/current_orders',passport.authenticate('jwt', { session: false }), controller.current_orders);
 
 // router.post('/customer-reviews',passport.authenticate('jwt', { session: false }), controller.customer-reviews);

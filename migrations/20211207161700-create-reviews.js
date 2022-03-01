@@ -20,7 +20,7 @@ module.exports = {
       },
       p_id: {
         type: DataTypes.INTEGER,
-        references: { model: 'Products', key: 'id' }
+        references: { model: 'products', key: 'id' }
       },
       createdAt: {
         allowNull: false,

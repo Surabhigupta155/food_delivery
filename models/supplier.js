@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
     working_hours: DataTypes.STRING
   }, {
     sequelize,
-    tableName: 'Supplier',
+    tableName: 'supplier',
     modelName: 'Supplier',
   });
   return Supplier;

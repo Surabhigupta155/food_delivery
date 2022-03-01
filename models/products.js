@@ -22,11 +22,11 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING,
     s_id: {
       type: DataTypes.INTEGER,
-      references: { model: 'Supplier', key: 'id' }
+      references: { model: 'supplier', key: 'id' }
     }
   }, {
     sequelize,
-    tableName: 'Products',
+    tableName: 'products',
     modelName: 'Products',
   });
   return Products;
