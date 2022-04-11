@@ -20,75 +20,77 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
 
       appBar: CustomerAppBar(),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
 
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                height: 100,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    itemCount: Category.categories.length,
-                    itemBuilder: (context, index) {
-                      return CategoryBox(category: Category.categories[index]);
-                    }),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                height: 125,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    itemCount: Promo.promos.length,
-                    itemBuilder: (context, index) {
-                      return PromoBox(promo: Promo.promos[index]);
-                    }),
-              ),
-            ),
-
-            FoodSearchBox(),
-
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  'Top Rated',
-                  style: Theme.of(context).textTheme.headline4,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  height: 100,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      itemCount: Category.categories.length,
+                      itemBuilder: (context, index) {
+                        return CategoryBox(category: Category.categories[index]);
+                      }),
                 ),
               ),
-            ),
-            
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ListView.builder(
-                  // scrollDirection: Axis.vertical,
-
-                  shrinkWrap: true,
-                  itemCount: Restaurant.restaurants.length,
-                  itemBuilder: (context, index) {
-                    return RestaurantCard(restaurant: Restaurant.restaurants[index]);
-                  }
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  height: 125,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      itemCount: Promo.promos.length,
+                      itemBuilder: (context, index) {
+                        return PromoBox(promo: Promo.promos[index]);
+                      }),
+                ),
               ),
-            ),
 
-          ],
-          // child: ElevatedButton(
-          //   style: ElevatedButton.styleFrom(primary: Theme.of(context).primaryColor),
-          //   child: Text('Location Screen',
-          //     style: Theme.of(context)
-          //         .textTheme
-          //         .headline2?.copyWith(color: Colors.white)
-          //   ),
-          //   onPressed: () {
-          //   Navigator.pushNamed(context, '/location');
-          // },),
+              FoodSearchBox(),
+
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    'Top Rated Restaurants',
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
+                ),
+              ),
+              
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListView.builder(
+                    // scrollDirection: Axis.vertical,
+
+                    shrinkWrap: true,
+                    itemCount: Restaurant.restaurants.length,
+                    itemBuilder: (context, index) {
+                      return RestaurantCard(restaurant: Restaurant.restaurants[index]);
+                    }
+                ),
+              ),
+
+            ],
+            // child: ElevatedButton(
+            //   style: ElevatedButton.styleFrom(primary: Theme.of(context).primaryColor),
+            //   child: Text('Location Screen',
+            //     style: Theme.of(context)
+            //         .textTheme
+            //         .headline2?.copyWith(color: Colors.white)
+            //   ),
+            //   onPressed: () {
+            //   Navigator.pushNamed(context, '/location');
+            // },),
+          ),
         ),
       ),
     );
@@ -107,7 +109,9 @@ class CustomerAppBar extends StatelessWidget with PreferredSizeWidget {
     return AppBar(
       leading: IconButton(
         icon: Icon(Icons.person),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/profile');
+        },
       ),
       centerTitle: false,
 

@@ -123,7 +123,7 @@ class RestaurantDetailsScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text('\$${menuItem.price}',
+                          Text('₹${menuItem.price}',
                             style: Theme.of(context).textTheme.bodyText1,),
                           BlocBuilder<BasketBloc, BasketState>(
                             builder: (context, state) {

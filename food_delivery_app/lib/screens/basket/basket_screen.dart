@@ -43,6 +43,7 @@ class BasketScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
+                  Navigator.pushNamed(context, '/checkout');
                 },
                 child: Text('Go To Checkout'),
               ),
@@ -215,7 +216,7 @@ class BasketScreen extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              '\$${state.basket.itemQuantity(state.basket.items).keys.elementAt(index).price}',
+                              '₹${state.basket.itemQuantity(state.basket.items).keys.elementAt(index).price}',
                               style: Theme.of(context).textTheme.headline6,
                             ),
 
@@ -367,7 +368,7 @@ class BasketScreen extends StatelessWidget {
                               style: Theme.of(context).textTheme.headline6,
                             ),
                             Text(
-                              '\$${state.basket.subtotalString}',
+                              '₹${state.basket.subtotalString}',
                               style: Theme.of(context).textTheme.headline6,
                             ),
 
@@ -382,7 +383,7 @@ class BasketScreen extends StatelessWidget {
                               style: Theme.of(context).textTheme.headline6,
                             ),
                             Text(
-                              '\$5.0',
+                              '₹5.0',
                               style: Theme.of(context).textTheme.headline6,
                             ),
 
@@ -397,7 +398,7 @@ class BasketScreen extends StatelessWidget {
                               style: Theme.of(context).textTheme.headline5!.copyWith(color: Theme.of(context).colorScheme.primary,),
                             ),
                             Text(
-                              '\$${state.basket.totalString}',
+                              '₹${state.basket.totalString}',
                               style: Theme.of(context).textTheme.headline5!.copyWith(color: Theme.of(context).colorScheme.primary,),
                             ),
 

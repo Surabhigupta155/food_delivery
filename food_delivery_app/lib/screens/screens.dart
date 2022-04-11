@@ -16,3 +16,4 @@ export 'forget_password/forget_password_screen.dart';
 export 'send_OTP/send_OTP_screen.dart';
 export 'new_password/new_password_screen.dart';
 export 'intro/intro_screen.dart';
+export 'profile/profile_screen.dart';

@@ -81,17 +81,17 @@ class _IntroScreenState extends State<IntroScreen> {
                       children: [
                         CircleAvatar(
                           radius: 5,
-                          backgroundColor: count == 0 ? Theme.of(context).colorScheme.primary : Colors.white38,
+                          backgroundColor: count == 0 ? Theme.of(context).colorScheme.primary : Colors.blueGrey,
                         ),
                         SizedBox(width: 5,),
                         CircleAvatar(
                           radius: 5,
-                          backgroundColor: count == 1 ? Theme.of(context).colorScheme.primary : Colors.white38,
+                          backgroundColor: count == 1 ? Theme.of(context).colorScheme.primary : Colors.blueGrey,
                         ),
                         SizedBox(width: 5,),
                         CircleAvatar(
                           radius: 5,
-                          backgroundColor: count == 2 ? Theme.of(context).colorScheme.primary : Colors.white38,
+                          backgroundColor: count == 2 ? Theme.of(context).colorScheme.primary : Colors.blueGrey,
                         ),
                         SizedBox(width: 5,),
 

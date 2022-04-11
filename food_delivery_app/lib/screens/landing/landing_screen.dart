@@ -57,7 +57,7 @@ class LandingScreen extends StatelessWidget {
                   children: [
                     Flexible(child: Text(
                       'Welcome to the food conjuncture of IIT Jammu!',
-                      style: Theme.of(context).textTheme.headline4,
+                      style: Theme.of(context).textTheme.headline5,
                       textAlign: TextAlign.center,
                     )),
                     Spacer(flex: 3,),

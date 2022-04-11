@@ -13,9 +13,9 @@ class Price extends Equatable {
   List<Object?> get props => [id, price];
 
   static List<Price> prices = [
-    Price(id: 1, price: '\$'),
-    Price(id: 2, price: '\$\$'),
-    Price(id: 3, price: '\$\$\$'),
+    Price(id: 1, price: '₹'),
+    Price(id: 2, price: '₹ ₹'),
+    Price(id: 3, price: '₹ ₹ ₹'),
   ];
 
 }

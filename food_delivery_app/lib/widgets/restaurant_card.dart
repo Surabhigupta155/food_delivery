@@ -68,7 +68,7 @@ class RestaurantCard extends StatelessWidget {
                   // Text('${restaurant.tags}'),
                   RestaurantTags(restaurant: restaurant),
                   SizedBox(height: 5,),
-                  Text('${restaurant.distance}km - \$${restaurant.deliveryFee} delivery fee', style: Theme.of(context).textTheme.bodyText1),
+                  Text('${restaurant.distance}km - ₹${restaurant.deliveryFee} delivery fee', style: Theme.of(context).textTheme.bodyText1),
                 ],
               ),
             ),
